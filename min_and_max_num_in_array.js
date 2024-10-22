@@ -1,3 +1,4 @@
+//   1st approach
 function findMinMax(arr) {
   let min = arr[0];
   let max = arr[0];
@@ -15,6 +16,7 @@ function findMinMax(arr) {
 
 findMinMax([9, 4, 5, 3, 1]);
 
+//   2nd approach
 const arr = [2, 3, 1, 5, 7, 1];
 const minVal = Math.min(...arr);
 const maxVal = Math.max(...arr);
