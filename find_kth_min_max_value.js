@@ -11,4 +11,4 @@ function findKthMinMaxValue(arr, k) {
   return console.log(min, max);
 }
 
-findKthMinMaxValue([2, 3, 5, 2, 6, 7, 3, 9], 3);
+findKthMinMaxValue([2, 3, 5, 2, 6, 7, 3, 9], 2);
