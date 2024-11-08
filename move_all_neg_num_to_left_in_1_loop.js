@@ -12,6 +12,6 @@ function moveAllNegToLeft(arr) {
   return arr;
 }
 
-const arr = [1, -2, -4, 6, - 5, 4, 0];
+const arr = [1, -2, -4, 6, -5, 4, 0];
 
 console.log(moveAllNegToLeft(arr));
