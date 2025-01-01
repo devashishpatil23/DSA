@@ -1,17 +1,18 @@
-function moveAllNegToLeft(arr) {
-  let j = 0;
+const checkPalidrome = (str) => {
+  const len = str.length;
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < 0) {
-      if (i != j) {
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      j++;
+  for (let i = 0; i < len / 2; i++) {
+    if (str[i] !== str[len - i - 1]) {
+      return false;
     }
+    return true;
   }
-  return arr;
-}
+};
 
-const arr = [1, -2, -4, 6, - 5, 4, 0];
+console.log(checkPalidrome("masam"));
 
-console.log(moveAllNegToLeft(arr));
+//  2nd apporch
+
+const str = "saas";
+const revStr = str.split("").reverse().join("");
+console.log(str === revStr);

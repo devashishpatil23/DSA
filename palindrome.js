@@ -1,22 +1,12 @@
-// Check is string is palidrome
+const checkPalidrome = (str) => {
+  const len = str.length;
 
-// Approch 1
-function checkPalidrome(str) {
-  let j = str.length - 1;
-  for (let i = 0; i <= str.length / 2; i++) {
-    if (str[i] != str[j]) {
+  for (let i = 0; i < len / 2; i++) {
+    if (str[i] !== str[len - i - 1]) {
       return false;
     }
-    j--;
+    return true;
   }
-  return true;
-}
-console.log(checkPalidrome("madam"));
-
-// approch 2
-function checkPalidrome(str) {
-  let rev = str.split("").reverse().join("");
-  return str == rev;
-}
+};
 
 console.log(checkPalidrome("madam"));

@@ -1,16 +1,17 @@
-// 1. Reverse a String
+const checkPalidrome = (str) => {
+  const len = str.length;
 
-// approch 1
-function reverseString(str) {
-  let reversedString = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversedString += str[i];
+  for (let i = 0; i < len / 2; i++) {
+    if (str[i] !== str[len - i - 1]) {
+      return false;
+    }
+    return true;
   }
-  return reversedString;
-}
+};
 
-console.log(reverseString("hello World"));
+console.log(checkPalidrome("masam"));
 
-// approch 2
-let str = "hello";
-console.log(str.split("").reverse().join(""));
+//  2nd apporch
+const str = "saas";
+const revStr = str.split("").reverse().join("");
+console.log(str === revStr);
