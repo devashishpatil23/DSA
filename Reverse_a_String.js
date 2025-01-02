@@ -1,17 +1,14 @@
-const checkPalidrome = (str) => {
-  const len = str.length;
-
-  for (let i = 0; i < len / 2; i++) {
-    if (str[i] !== str[len - i - 1]) {
-      return false;
-    }
-    return true;
+function reverseString(str) {
+  let revStr = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    revStr += str[i];
   }
-};
 
-console.log(checkPalidrome("masam"));
+  return console.log(revStr);
+}
+reverseString("hello");
 
-//  2nd apporch
-const str = "saas";
+//  2nd appor
+const str = "hello";
 const revStr = str.split("").reverse().join("");
-console.log(str === revStr);
+console.log(revStr);

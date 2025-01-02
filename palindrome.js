@@ -10,3 +10,8 @@ const checkPalidrome = (str) => {
 };
 
 console.log(checkPalidrome("madam"));
+
+//  2nd appor
+const str = "saas";
+const revStr = str.split("").reverse().join("");
+console.log(str === revStr);
