@@ -1,14 +1,18 @@
-function reverseString(str) {
+function reverseAString(str) {
   let revStr = "";
+
   for (let i = str.length - 1; i >= 0; i--) {
     revStr += str[i];
   }
-
-  return console.log(revStr);
+  return revStr;
 }
-reverseString("hello");
 
-//  2nd appor
-const str = "hello";
+console.log(reverseAString("my namw is john"));
+
+// apporch 2
+
+const str = "hello boy";
+
 const revStr = str.split("").reverse().join("");
+
 console.log(revStr);
