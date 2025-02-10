@@ -1,4 +1,14 @@
 function findFactorial(num) {
+  let result = 1;
+  for (i = 2; i <= num; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+console.log(findFactorial(5));
+
+function findFactorial(num) {
   if (num === 0 || num === 1) {
     return 1; // Base case: factorial of 0 or 1 is 1
   } else {
@@ -18,13 +28,3 @@ console.log(findFactorial(5));
 //           -> 5 * (4 * 6)
 //           -> 5 * 24
 //           -> 120
-
-function findFactorial(num) {
-  let result = 1;
-  for (i = 2; i <= num; i++) {
-    result *= i;
-  }
-  return result;
-}
-
-console.log(findFactorial(5));

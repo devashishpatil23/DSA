@@ -11,3 +11,18 @@ function findLongestWord(text) {
 }
 
 console.log(findLongestWord("hi my name is devashish"));
+
+// smallest word
+function findSmallestWord(str) {
+  const words = str.split(" ");
+  let small = words[0];
+
+  for (let word of words) {
+    if (word.length < small.length) {
+      small = word;
+    }
+  }
+  return console.log(small);
+}
+
+findSmallestWord("hi bye goodnight");
