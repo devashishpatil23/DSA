@@ -259,3 +259,4 @@ function mul(a) {
 // which is being passed in successive
 
 // Remember, the .env file should not be used to store sensitive information like secrets or passwords, as these files are generally included in the version control system and can be accessed by anyone with access to the repository.
+

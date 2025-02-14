@@ -1,20 +1,22 @@
-function flattenArray(arr) {
-  const copy = [...arr];
+function validateparentheses(str) {
+  const stack = [];
+  const brakets = {
+    "}": "{",
+    ")": "(",
+    "]": "[",
+  };
 
-  const flattend = [];
-
-  while (copy.length) {
-    const next = copy.pop();
-    if (Array.isArray(next)) {
-      copy.push(...next);
+  for (let char of str) {
+    if (char === "(" || char === "[" || char === "{") {
+      stack.push(char);
     } else {
-      flattend.push(next);
+      const last = stack.pop();
+      if (last !== brakets[char]) {
+        return false;
+      }
     }
-    flattend;
   }
-  return flattend;
+  return stack.length === 0;
 }
 
-let array = [1, [2, 3], [4, [5, 6]]];
-
-console.log(flattenArray([...array]));
+console.log(validateparentheses("({})"));
