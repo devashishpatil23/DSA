@@ -20,9 +20,9 @@ function validate(str) {
   return stack.length === 0;
 }
 
-console.log(validate("{[()]}")); // ✅ true
-console.log(validate("{[)}")); // ❌ false
-console.log(validate("()[]{}")); // ✅ true
-console.log(validate("(]")); // ❌ false
-console.log(validate("({})")); // ✅ true
-console.log(validate("{{{")); // ✅ true
+console.log(validate("{[()]}"));
+console.log(validate("{[)}"));
+console.log(validate("()[]{}"));
+console.log(validate("(]"));
+console.log(validate("({})"));
+console.log(validate("{{{"));
