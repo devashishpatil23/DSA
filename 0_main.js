@@ -1,20 +1,9 @@
-function transformStringIgnoreCase(str) {
-  if (str.length === 0) return "";
+const arr = [1, 5, 6, 7];
+n = 10;
+output = [];
 
-  let result = [];
-  let count = 1;
-  let lowerStr = str.toLowerCase(); // Convert to lowercase for case-insensitivity
-
-  for (let i = 0; i < str.length; i++) {
-    if (lowerStr[i] === lowerStr[i + 1]) {
-      count++;
-    } else {
-      result.push(str[i] + count); // Preserve original case
-      count = 1;
-    }
-  }
-
-  return result.join("");
+for (let i = 1; i <= n; i++) {
+  !arr.includes(i) ? output.push(i) : null;
 }
 
-console.log(transformStringIgnoreCase("aAbbCCC")); // Output: "a2b2c3"
+console.log(output);
