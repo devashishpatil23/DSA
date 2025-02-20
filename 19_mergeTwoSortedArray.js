@@ -36,7 +36,7 @@ const sortedData = (arr1, arr2) => {
     }
   }
 
-  console.log(...mergedArray);
+  console.log(mergedArray);
 };
 
 // Example usage:
