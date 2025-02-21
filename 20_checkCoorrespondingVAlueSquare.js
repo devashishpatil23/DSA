@@ -1,4 +1,4 @@
-function checkFreq(arr1, arr2) {
+function checkCorSqr(arr1, arr2) {
   if (arr1.length !== arr2.length) return false;
 
   const obj1 = {};
@@ -21,4 +21,4 @@ function checkFreq(arr1, arr2) {
   return true;
 }
 
-console.log(checkFreq([3, 3, 3], [9, 9, 2]));
+console.log(checkCorSqr([1, 2, 3], [1, 4, 9]));
