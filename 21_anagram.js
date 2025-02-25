@@ -1,21 +1,20 @@
 function checkAnagram(str1, str2) {
-  strObj = {};
-  for (let char of str1) {
-    strObj[char] = (strObj[char] || 0) + 1;
-  }
+  const freq = {};
 
-  for (let char of str2) {
-    if (strObj[char]) {
-      strObj[char] -= 1;
+  for (let ch of str1) {
+    freq[ch] = (freq[ch] || 0) + 1;
+  }
+  for (let ch of str2) {
+    if (freq[ch]) {
+      freq[ch] -= 1;
     } else {
       return false;
     }
   }
-
   return true;
 }
 
-console.log(checkAnagram("run", "urn"));
+console.log(checkAnagram("hello", "hedllo"));
 
 // 2nd apporch
 const anagramCheck = (str1, str2) => {
