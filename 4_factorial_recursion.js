@@ -28,3 +28,5 @@ console.log(findFactorial(5));
 //           -> 5 * (4 * 6)
 //           -> 5 * 24
 //           -> 120
+
+
