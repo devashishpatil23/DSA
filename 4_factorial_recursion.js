@@ -10,13 +10,16 @@ console.log(findFactorial(5));
 
 function findFactorial(num) {
   if (num === 0 || num === 1) {
-    return 1; // Base case: factorial of 0 or 1 is 1
+    return 1; // Base case: factorial  of 0 or 1 is 1
+    // to stop infinity excicution
   } else {
     return num * findFactorial(num - 1); // Recursive case: multiply num by factorial of (num - 1)
   }
 }
 
 console.log(findFactorial(5));
+
+// Big o = O(n) linear
 
 //   findFactorial(5)
 //   -> 5 * findFactorial(4)
@@ -28,5 +31,3 @@ console.log(findFactorial(5));
 //           -> 5 * (4 * 6)
 //           -> 5 * 24
 //           -> 120
-
-
