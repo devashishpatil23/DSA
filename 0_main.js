@@ -1,22 +1,28 @@
-function findLargestElement(arr) {
-  let max = Number.NEGATIVE_INFINITY;
+const sortedData = (arr1,arr2) => {
+ 
+  let i = 0;
+   let j=0;
+   let array1 = arr1[i];
+   let array2 = arr2[j];
+   
+   let mergedArray = [];
+   
+   while(array1 || array2){
+   
+   if(array2 === undefined || array1 < array2){
+   mergedArray.push(array1);
 
-  function traverse(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      if (Array.isArray(arr[i])) {
-        // If element is array,recursively call traverse function
-        traverse(arr[i]);
-      } else {
-        if (arr[i] > max) {
-          max = arr[i];
-        }
-      }
-    }
+   i++
+   array1 = arr1[i];
+   }else{
+   mergedArray.push(array2);
+   j++
+   array2 = arr2[j];
+   }
+   
+   }
+   console.log(mergedArray)
+   
+   
   }
-
-  traverse(arr);
-  return max;
-}
-
-const array = [[3, 4, 58], 11111, [(709,9999 ,8, 9, [10, 11])], [111, 2]];
-console.log("Largest element:", findLargestElement(array));
+  sortedData([1,3,4,5],[2,6,8,9])

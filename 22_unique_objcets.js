@@ -7,22 +7,21 @@ const objects = [
   { id: 4, name: "Date" },
 ];
 
-// function uniqueObj(objects){
-// const unique = []
-// const hasValue = {}
+function uniqueObj(objects){
 
-// for(let i= 0; i< objects.length; i ++){
-// const curVal = objects[i].id
-// if(!(hasValue[curVal])){
-// unique.push( objects[i])
-// hasValue[curVal] = true;
-// }
-// }
-// return unique;
-
-// }
-
-// console.log(uniqueObj(objects))
+  const uniqueObj = [];
+  const hasVal = {}
+  
+  for(let obj of objects){
+  if(!hasVal[obj.id]){
+  uniqueObj.push(obj)
+  hasVal[obj.id] = true;
+  }
+  }
+  return uniqueObj
+  
+  }
+  console.log(uniqueObj(objects))
 
 function uniqueObj(objects) {
   const unique = [];
