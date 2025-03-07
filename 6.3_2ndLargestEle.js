@@ -1,0 +1,16 @@
+function min2ndMax(arr) {
+  let first = -Infinity;
+  let second = -Infinity;
+
+  for (let num of arr) {
+    if (num > first) {
+      second = first;
+      first = num;
+    } else if (num > second && num !== first) {
+      second = num;
+    }
+  }
+  return second === -Infinity ? null : second;
+}
+
+console.log(min2ndMax([1, 2, 32, 3, 4, 33, 4]));
