@@ -1,5 +1,5 @@
 function commonElements(arr1, arr2) {
-  const set = new Set(...arr);
+  const set = new Set(arr1);
 
   let commonEle = arr2.filter((e) => {
     return set.has(e);
