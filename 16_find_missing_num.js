@@ -12,16 +12,15 @@ console.log(output);
 
 //2nd approch
 
-const arr2 = new Set([1, 5, 6, 7]); // O(m)
-n = 10;
-output = [];
+const arr = new Set([4, 7, 5, 8, 9]);
+const n = 10;
+const result = [];
 
-for (let i = 1; i <= n; i++) {
-  if (!arr.has(i)) output.push(i); // O(1) lookup
+for (let i = 0; i <= n; i++) {
+  if (!arr.has(i)) result.push(i);
 }
 
-console.log(output);
-
+console.log(result);
 
 // Constructing the Set takes O(m).
 // The loop runs in O(n).

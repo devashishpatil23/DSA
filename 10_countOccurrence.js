@@ -9,19 +9,19 @@ function findDupCount(arr) {
 
 console.log(findDupCount([1, 1, 2, 3, 4, 5, 5, 6]));
 //-------------------
-function countRepeated(str, n) {
+function count(str,l){
   let count = 0;
-  const newStr = str.split(" ").join("");
-
-  for (let i = 0; i < newStr.length; i++) {
-    if (newStr[i] === n) {
-      count += 1;
-    }
+  
+  for(let ch of str){
+  if(ch === l){
+  count +=1
   }
-  return count;
-}
-
-console.log(countRepeated("hello world", "l"));
+  }
+  
+  return count
+  }
+  
+  console.log(count('hello','l'))
 
 // ------------------------------
 
