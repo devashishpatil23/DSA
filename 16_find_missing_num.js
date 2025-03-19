@@ -12,7 +12,7 @@ console.log(output);
 
 //2nd approch
 
-const arr = new Set([4, 7, 5, 8, 9]);
+/*const arr = new Set([4, 7, 5, 8, 9]);
 const n = 10;
 const result = [];
 
@@ -20,7 +20,7 @@ for (let i = 0; i <= n; i++) {
   if (!arr.has(i)) result.push(i);
 }
 
-console.log(result);
+console.log(result);*/
 
 // Constructing the Set takes O(m).
 // The loop runs in O(n).

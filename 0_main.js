@@ -1,28 +1,20 @@
-const sortedData = (arr1,arr2) => {
- 
-  let i = 0;
-   let j=0;
-   let array1 = arr1[i];
-   let array2 = arr2[j];
-   
-   let mergedArray = [];
-   
-   while(array1 || array2){
-   
-   if(array2 === undefined || array1 < array2){
-   mergedArray.push(array1);
+function checkSquare(arr1, arr2) {
+  let obj1 = {};
+  let obj2 = {};
 
-   i++
-   array1 = arr1[i];
-   }else{
-   mergedArray.push(array2);
-   j++
-   array2 = arr2[j];
-   }
-   
-   }
-   console.log(mergedArray)
-   
-   
+  for (let el of arr1) {
+    obj1[el] = (obj1[el] || 0) + 1;
   }
-  sortedData([1,3,4,5],[2,6,8,9])
+  for (let el of arr2) {
+    obj2[el] = (obj2[el] || 0) + 1;
+  }
+
+  for (let key in obj1) {
+    const square = key ** 2;
+    if (!(square in obj2)) return false;
+    if (obj2[square] !== obj1[key]) return false;
+  }
+  return true;
+}
+
+console.log(checkSquare([1, 2, 4], [1, 4, 9]));
