@@ -41,3 +41,14 @@ function flattenArray(arr) {
 }
 
 console.log(flattenArray([1, [2, [3, [4]]]]));
+
+
+
+
+// function falttenArray(arr) {
+//   return arr.reduce(
+//     (acc, val) =>
+//       Array.isArray(val) ? acc.concat(falttenArray(val)) : acc.concat(val),
+//     []
+//   );
+// }

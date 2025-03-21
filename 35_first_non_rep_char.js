@@ -2,8 +2,7 @@
 function findNonRepChar(str) {
   const charCount = {};
   for (const char of str) {
-    //     Expression: charCount['a'] → undefined
-    // undefined || 0: Since undefined is falsy, it returns 0.
+
     charCount[char] = (charCount[char] || 0) + 1;
   }
   for (const char of str) {
@@ -27,18 +26,3 @@ function firstNonRepeatedChar(str) {
 }
 
 firstNonRepeatedChar("programming");
-
-// all non repeated char
-function allNonRepChar(str) {
-  let charCount = {};
-  for (let char of str) {
-    charCount[char] = (charCount[char] || 0) + 1;
-  }
-  const findAllRepChar = Object.keys(charCount).filter(
-    (e) => charCount[e] == 1
-  );
-  console.log(findAllRepChar);
-  return null;
-}
-
-allNonRepChar("apple");

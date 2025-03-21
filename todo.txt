@@ -1,7 +1,5 @@
-Question 1: Can you write a function in JavaScript to convert a string containing hyphens and underscores to camel case?
-Question 2: Can you write a line of code in JavaScript to swap the values of two variables without using a temporary variable?
-Question 3: Can you write a function in JavaScript to create a countdown from a given number?
-Question 4: Can you write a function in JavaScript to convert a string to an integer while handling non-numeric characters gracefully?
+
+
 Question 5: Can you write a function in JavaScript to convert a decimal number to its binary representation?
 Question 6: Write a concise function to safely access a deeply nested property of an object without throwing an error if any intermediate property is undefined.
 Question 7: Can you write a function in JavaScript to generate a random integer between a specified minimum and maximum value (inclusive)?
