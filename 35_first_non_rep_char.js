@@ -1,20 +1,3 @@
-// 1st apporch
-function findNonRepChar(str) {
-  const charCount = {};
-  for (const char of str) {
-
-    charCount[char] = (charCount[char] || 0) + 1;
-  }
-  for (const char of str) {
-    if (charCount[char] === 1) {
-      return console.log(char);
-    }
-  }
-  return null;
-}
-
-findNonRepChar("hello");
-
 // 2nd apporch
 function firstNonRepeatedChar(str) {
   for (let i = 0; i <= str.length - 1; i++) {

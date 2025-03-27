@@ -1,5 +1,5 @@
 function findMaxEle(arr) {
-  let max = Number.NEGATIVE_INFINITY;
+  let max = -Infinity;
 
   function traverse(arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -16,11 +16,9 @@ function findMaxEle(arr) {
   return max;
 }
 
-const array = [[3, 4, 58], 11111, [(709, 9999, 8, 9, [10, 11])], [111, 2]];
+const array = [[3, 4, 58], 11111, [709, 9999, 8, 9, [10, 11]], [111, 2]];
 
 console.log("Largest element:", findMaxEle(array));
-
-
 
 ////-----
 console.log(Math.max(...array.flat(Infinity)));

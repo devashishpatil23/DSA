@@ -1,4 +1,4 @@
-function min2ndMax(arr) {
+function secondMaxEle(arr) {
   let first = -Infinity;
   let second = -Infinity;
 
@@ -13,4 +13,4 @@ function min2ndMax(arr) {
   return second === -Infinity ? null : second;
 }
 
-console.log(min2ndMax([1, 2, 32, 3, 4, 33, 4]));
+console.log(secondMaxEle([1, 2, 32, 3, 4, 33, 4]));

@@ -1,9 +1,3 @@
-
-3: Can you write a function in JavaScript to capitalize the first letter of each word in a given sentence?
-4: Can you write a function in JavaScript to rename a specific property in an object?
-5: Can you write a JavaScript function to group an array of objects by a specified property?
-6: Can you write a JavaScript function to find the missing number in an array of consecutive integers from 1 to N?
-7: Can you write a JavaScript function to reverse the key-value pairs of an object?
 8: Can you write a JavaScript function to check if a given string has balanced parentheses?
 9: Can you write a concise function in JavaScript to implement a simple debounce function that delays the execution of a given function until after a specified time interval has passed without additional calls?
 10: Can you write a JavaScript function to truncate a given string to a specified length and append “…” if it exceeds that length?
