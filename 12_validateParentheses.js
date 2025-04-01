@@ -1,38 +1,6 @@
-function validate(str) {
-  const stack = [];
-  const brackets = {
-    ")": "(",
-    "}": "{",
-    "]": "[",
-  };
-
-  for (let char of str) {
-    if (char === "(" || char === "{" || char === "[") {
-      stack.push(char);
-    } else {
-      let last = stack.pop();
-      if (brackets[char] !== last) {
-        return false;
-      }
-    }
-  }
-
-  return stack.length === 0;
-}
-
-console.log(validate("{[()]}"));
-console.log(validate("{[)}"));
-console.log(validate("()[]{}"));
-console.log(validate("(]"));
-console.log(validate("({})"));
-console.log(validate("{{{"));
-
-
-
-
 function isValidParentheses(s) {
   const stack = [];
-  const pairs = { '(': ')', '{': '}', '[': ']' };
+  const pairs = { "(": ")", "{": "}", "[": "]" };
   for (const char of s) {
     if (char in pairs) {
       stack.push(char);
@@ -45,4 +13,29 @@ function isValidParentheses(s) {
   return stack.length === 0;
 }
 
-console.log(isValidParentheses("{[()]}"));  // Output: true
+console.log(isValidParentheses("{[()]}")); // Output: true
+
+//===================================================================
+
+function validParenthis(str) {
+  const stack = [];
+
+  for (let ch of str) {
+    if (ch === "(") {
+      stack.push(ch);
+    } else if (ch === ")") {
+      if (stack.length === 0) {
+        return false; // Unmatched closing parenthesis
+      }
+      stack.pop(); // Remove last opening parenthesis
+    }
+  }
+
+  return stack.length === 0; // If stack is empty, parentheses are balanced
+}
+
+// Example usage:
+console.log(validParenthis("(())")); // true
+console.log(validParenthis("(()")); // false
+console.log(validParenthis(")(")); // false
+console.log(validParenthis("()()")); // true

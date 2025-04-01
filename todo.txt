@@ -1,6 +1,4 @@
-8: Can you write a JavaScript function to check if a given string has balanced parentheses?
-9: Can you write a concise function in JavaScript to implement a simple debounce function that delays the execution of a given function until after a specified time interval has passed without additional calls?
-10: Can you write a JavaScript function to truncate a given string to a specified length and append “…” if it exceeds that length?
+
 11: Can you write a throttle function in JavaScript to implement a simple throttle function that limits the execution of a given function to once every specified time interval?
 12: Can you write a JavaScript function to check if a given string has all unique characters?
 13: Can you write a function in JavaScript to convert each string in an array of strings to uppercase?
