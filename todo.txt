@@ -1,9 +1,18 @@
 
-11: Can you write a throttle function in JavaScript to implement a simple throttle function that limits the execution of a given function to once every specified time interval?
-12: Can you write a JavaScript function to check if a given string has all unique characters?
-13: Can you write a function in JavaScript to convert each string in an array of strings to uppercase?
-14: Can you write a JavaScript function to flatten a nested object?
-15: Can you write a JavaScript function to rotate the elements of an array to the right by a specified number of positions?
+
+
 16: Can you write a JavaScript function to convert a given number of minutes into hours and minutes?
 17: Can you write a JavaScript function to generate a random password of a specified length?
 18: Can you write a JavaScript function to convert an RGB color to its hexadecimal representation?
+
+
+function convertToUpperCase(arr) {
+  return arr.map(str => str.toUpperCase());
+}
+Example usage:
+javascript
+Copy
+Edit
+const strings = ["hello", "world", "javascript"];
+const uppercased = convertToUpperCase(strings);
+console.log(uppercased); // Output: ["HELLO", "WORLD", "JAVASCRIPT"]

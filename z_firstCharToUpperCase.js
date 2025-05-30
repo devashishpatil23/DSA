@@ -6,3 +6,12 @@ function capitalizeWords(str) {
 }
 
 console.log(capitalizeWords("hello world"));
+
+// -------------------------------
+function upperCaseStringArray(arr) {
+  return arr.map((str) => str.toUpperCase());
+}
+
+console.log(upperCaseStringArray(["hello", "world", "javascript"]));
+// -------------------------------
+

@@ -1,6 +1,6 @@
 // A prime number is a number greater than 1 that has no divisors other than 1 and itself.
 
-//composite numbe are divisilbe by num less or equalt to then there sq root and prime number are not
+//composite number are divisilbe by num less or equalt to then there sq root and prime number are not
 function isPrimeNumber(x) {
   if (x <= 1) {
     return false;

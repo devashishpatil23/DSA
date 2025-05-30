@@ -1,14 +1,18 @@
-const arr = [1, 5, 6, 7];
-n = 10;
-output = [];
+function findMissingNumber(arr,n){
+const result = [];
 
-for (let i = 1; i <= n; i++) {
-  !arr.includes(i) ? output.push(i) : null;
+for(let i=1; i<=n; i++){
+if(arr.indexOf(i) === -1){
+result.push(i)
+}
+}
+return result
+
 }
 
-console.log(output);
 
-// .includes(i) is called on arr, which takes O(m) time in the worst case (since .includes() performs a linear search).
+console.log(findMissingNumber([1, 5, 6, 7],10))
+
 
 //2nd approch
 
@@ -26,10 +30,4 @@ console.log(result);
 // The loop runs in O(n).
 // Overall, this optimized version runs in O(n + m) instead of O(n * m)
 
-const arr = [1, 2, 4, 5];
 
-for (let i = 1; i < arr.length; i++) {
-  if (arr.indexOf(i) === -1) {
-    console.log(i);
-  }
-}
