@@ -1001,3 +1001,666 @@ console.log(person2.name); //Dolly
 // Explanation : As Object.assign() method will add all the key values of person2 to person1 and return the reference of person1 to person and if same key are there they'll be overwritten.
 // Basically person1 and person are referring to same object.
 //=========================================================
+
+
+
+
+// Question: What is typeof []
+// Answer: Object. Actually Array is derived from Object. If you want to check array use Array.isArray(arr)
+
+// Question: What is typeof arguments
+// Answer: Object. arguments are array like but not array. it has length, can access by index but can't push pop, etc.
+
+// Question: What is the value of typeof null
+// Answer: "object"
+
+// Question: What is console.log(true+false)
+// Answer: 1 here true -->> 1 & false -->> 0 then 1 + 0 -->> 1
+
+// Question: What is 2+true
+// Answer: 3. The plus operator between a number and a boolean or two boolean will convert boolean to number. Hence, true converts to 1 and you get result of 2+1
+
+// Question: What is "2"+true
+// Answer: 2true here string concatination happer "2"+"true" -->> 2true
+
+// ------------------------------------------------------
+let c = {name  : "priya"};
+let d;
+d=c;
+c.name = "supriya";
+console.log(d.name); //supriya
+//Explaination : Using assignment operator we are accessing the same memory allocation. 
+// -------------------------------------------------------
+var x;
+var x=10;
+console.log(x); //10
+//Explaination : Can be declare multiple times.
+// ---------------------------------------------------------
+var x;
+let x=10;
+console.log(x); //Error
+//Explaination : Can't be declare multiple times with LET.
+// ----------------------------------------------------------
+let a = 3;
+let b = new Number(3);
+console.log(a == b); //true
+console.log(a === b); //false
+console.log(typeof b); //object
+//Explaination : === will give false because a will give number but b will give an object.
+// -------------------------------------------------------
+let name;
+nmae ={}; //wrong variable name i wrote
+console.log(name); //undefined
+//Explaination : by default it wil be undefined if we declare first.
+// ---------------------------------------------------------
+function first(){
+  console.log("Woof!!"); //Woof!!
+}
+first.name = "apple";
+first();
+//Explaination : To add the property with a function then it will not create a impact.
+// ----------------------------------------------------------
+function sum(a,b){
+  return a+b;
+}
+console.log(sum(1, "2")); //12
+//Explaination : 2 is passed as a string so it will get concat. num+string = string
+// ------------------------------------------------------------
+let num = 0;
+console.log(num++); //0
+console.log(++num); //2
+console.log(num); //2
+//Explaination : ++ will increase the value by 1. preincrement and postincrement used here.
+// --------------------------------------------------------------
+function getAge(...args){ //[1000]
+  console.log(typeof args); //object
+}
+getAge(1000);
+//Explaination : typeof args means typeof an array means typeof [] is object.
+// --------------------------------------------------------------
+function getAge(){ 
+ age = 1000;
+ console.log(age); //1000
+}
+getAge();
+//Explaination : if we didn't declare with Var/Let/const then by default it will become as a Var.
+------------------------------------------------------------------
+function getAge(){ 
+  'use strict'
+ age = 1000;
+ console.log(age); //error
+}
+getAge();
+//Explaination : Use strict wil give a error because it forces to use a proper way of the variable declaration.
+----------------------------------------------------------------------
+const sum = eval('10*10+5');
+console.log(sum); //105
+//Explaination : It will perform the numerical operation
+----------------------------------------------------------------------------
+const obj = {1:"a", 2:"b"}
+console.log(obj.hasOwnProperty("1")); //true
+console.log(obj.hasOwnProperty(1)); //true
+//Explaination : "1" and 1 treat as same.
+----------------------------------------------------------------------------
+const obj = {a:"one", b: "two", a:"three"}
+console.log(obj); // {a:"three", b: "two"}
+//Explaination : Key position will be same but tha value get updated with new value in object.
+// ----------------------------------------------------------------------------
+for(let i=1; i<5; i++){
+  if(i==3) continue;
+  console.log(i); //1,2,4
+}
+//Explaination : If i =3 then it will not execute the code for 3, but can execute for i=4.
+// ------------------------------------------------------------------------------
+const foo = () => console.log("first");
+const bar = () => setTimeout(()=> console.log("second"));
+const baz = () => console.log("third");
+bar();
+foo();
+baz();
+//Explaination : first,third, second. Because asyn operation work post all the syn operation get complete.
+// ----------------------------------------------------------------------------
+<div onClick="console.log("first div")">
+  <div onClick="console.log("second div")">
+    <button onClick="console.log("button")">
+     Click Me
+     </button>
+  </div>
+</div>
+//Explaination : button, second div, first div. Even bubbling happened here.
+// ---------------------------------------------------------------------------
+const person = {name:'priya'};
+function sayHi(age){
+  return `${this.name} is ${age}`;
+}
+console.log(sayHi.call(person,21)); //"priya is 21"
+console.log(sayHi.bind(person,21)); //it will return a function. //function sayHi(age){  return `${this.name} is ${age}`;}
+console.log(sayHi.bind(person,21)()); //"priya is 21"
+//Explaination : Bind will always return a function so require to invoke the function.
+// ------------------------------------------------------------------------------
+function sayHi(){
+  return (()=>0)();
+}
+console.log(typeof sayHi()); //number
+//Explaination : sayHi will return anonymous arrow function/IIFE, where it will return 0. type of 0 is number.
+// ----------------------------------------------------------------------------
+function sayHi(){
+  return ()=>0;
+}
+console.log(typeof sayHi()); //function
+console.log(typeof sayHi()()); //function
+//Explaination : sayHi will return anonymous arrow function/IIFE, where we didn't invole the arroe function so it will return function.
+// -----------------------------------------------------------------------------
+console.log(typeof typeof 1); //string
+//Explaination : typeof 1 is a number and typeof number is a string.
+// -----------------------------------------------------------------------------
+const numbers = [1,2,3];
+numbers[6]=11;
+console.log(numbers); //[1,2,3,,,,11]
+//Explaination : Array store elements in a continuous memory location. It will give empty in between an array.
+// -------------------------------------------------------------------------------
+const numbers = [1,2,3];
+numbers[9]=numbers;
+console.log(numbers); //[1,2,3,,,,.......]
+//Explaination: It will print infinite loop.
+// -------------------------------------------------------------------------------
+console.log(!!null); //false
+console.log(!!""); //false
+console.log(!!1); //true
+//Explaination: !null give true and !!null give false. !1 give false and then !!1 give true.
+// -------------------------------------------------------------------------------
+console.log(setInterval(()=>console.log('Hi'), 1000));
+console.log(setInterval(()=>console.log('Hi'), 1000));
+console.log(setInterval(()=>console.log('Hi'), 1000));
+//Explaination: setInterval will give uniques id to stop. It will give like 1,2,3. so it will print 1,2,3,Hi,Hi, Hi, Hi, Hi, .....so on.
+// ------------------------------------------------------------------------------
+console.log(setTimeout(()=>console.log('Hi'), 1000));
+console.log(setTimeout(()=>console.log('Hi'), 1000));
+console.log(setTimeout(()=>console.log('Hi'), 1000));
+//Explaination : it will print 1,2,3,Hi,Hi, Hi.
+// setTimeout(...) schedules a function to run after 1000 milliseconds (1 second).
+// However, setTimeout itself returns a timer ID (a number) immediately.
+// So console.log(setTimeout(...)) logs the timer ID, not 'Hi'.
+// -------------------------------------------------------------------------------
+console.log([..."priya"]); //["p","r","i","y","a"]
+//Explaination: It will convert into an array.
+// -------------------------------------------------------------------------------
+const firstPromise = new Promise((res, rej)=>{
+  setTimeout(res, 500, 'one');
+})
+const secondPromise = new Promise((res, rej)=>{
+  setTimeout(res, 100, 'second');
+})
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+//Explaination: Race will return only first matching result so it will print 100. For 500 it will take time to execute so it will not get print.
+// -----------------------------------------------------------------------------------
+let person = {name: "priya"};
+const numbers = [person];
+person = null;
+console.log(numbers, person); // [{name : "priya"}] //null
+//Explaination: We try to empty the objecti,e person, but still an array i.e, numbers conatin value so it will not create an impact while assigning null to person.
+// ----------------------------------------------------------------------------------
+const person = {name: "priya", age: 1000};
+for(const item in person){
+  console.log(item); //name, age
+}
+//Explaination: For in loop give a keys only.
+// --------------------------------------------------------------------------------------
+let data = 3+4+'5';
+console.log(data); //"75"
+console.log(typeof data); //string
+//Explaination: It will add as a string.
+// ------------------------------------------------------------------------------------------
+console.log(typeof 3+4+'5'); //"number45"
+//Explaination: operation went from left to right side.
+// ----------------------------------------------------------------------------------------
+console.log(typeof (3+4+'5')); //"75" //string
+console.log(typeof (3+4+  +'5'));//number
+//Explaination: To find out the typeof when the all the operation get complete thrn have to enclose in paranethisis. If we add + plus sign to any string it will convert to a number.
+// ----------------------------------------------------------------------------------------
+let data = [1,2,3].map( num =>{
+  if (typeof num === 'number') return;
+  return num*2;
+})
+console.log(data); //[undefined,undefined,undefined]
+//Explaination: If jusr return then it will print undefined.
+// ----------------------------------------------------------------------------------------
+function getInfo(member){
+  member.name = "priya";
+}
+const person = {name : "supriya"}
+getInfo(person);
+console.log(person); //{"name":"priya"}
+//Explaination: If we pass an object as argument it will have call by refrence, means having same memory location.
+// ----------------------------------------------------------------------------------------
+function Car(){
+  this.make = "tata";
+  return {make: "kia"};
+}
+const myCar = new Car();
+console.log(myCar.make); //kia
+//Explaination: return will overrite the property.If we didn't return then it will print tata.
+// ----------------------------------------------------------------------------------------
+(()=>{
+  let x = (y = 10);
+})()
+console.log(typeof x, y); //"undefined" //10
+//Explaination: x is a block scope, and we are trying to console x outside of x so that's why undefined.
+// -----------------------------------------------------------------------------------------
+(()=>{
+  let x = y = 10;
+})()
+console.log(typeof y); //number
+//Explaination: x is a block scope, and y is a var because y is not declared so by default it will be var.
+// ----------------------------------------------------------------------------------------
+(()=>{
+  let x = 10;
+})();
+(()=>{
+  let x = 10;
+})();
+console.log(typeof x); //undefined
+//Explaination: x is a block scope.
+// ---------------------------------------------------------------------------------------
+(()=>{
+  let x = y = 10;
+})();
+(()=>{
+  let x = y = 20;
+})();
+console.log(y); //20
+//Explaination: y is a var scope so it will overrite from 10 to 20
+// -----------------------------------------------------------------------------------------
+let x =100;
+(()=>{
+  var x = 10;
+})();
+console.log(x); //100
+//Explaination: x=10 contain inside a block because we already declare with 100 outside so it will print 100.
+// -------------------------------------------------------------------------------------------
+const func = (function(a){
+                   delete a;
+                   return a;
+               } )(5)
+console.log(func);
+
+output: 5
+//delete keyword only use with object properties. here a is a variable so it will not work the variable. //delete user.age 
+// ------------------------------------------------------------------------------------------
+// Dynamic property of object :
+const property = "firstName";
+const name = "Priya";
+
+const user = {
+  property : name //{"property" : "Priya"}
+}
+console.log(user);
+
+const user1 = {
+  [property] : name //dynamic property required [] //{"firstName" : "Priya"}
+}
+console.log(user1);
+// ------------------------------------------------------------------------------------------
+const user ={
+  name : "priya",
+  age : 100
+}
+
+//iterate through keys
+for(let item in user){
+  console.log(item) //name age
+}
+//iterate through values
+for(let item in user){
+  console.log(user[item]) //priya 100
+}
+// ------------------------------------------------------------------------------------------
+const user ={
+  name : "priya",
+  age : 100
+}
+
+//double the age as 200 //iterate through keys
+for(let item in user){
+ if(typeof user[item] === "number"){
+   user[item]*=2
+ }
+}
+
+console.log(user)
+// answer:
+// {
+//   age: 200,
+//   name: "priya"
+// }
+// ------------------------------------------------------------------------------------------
+const user = {
+  name :"priya",
+  age : 100
+}
+//convert into a string
+const str = JSON.stringify(user)
+console.log(str)//{'name':'priya','age':100}"
+
+//convert string onto an object
+console.log(JSON.parse(str)) //{ name : "priya, "age":100}
+
+
+// *****************
+// Real Usecases : Storing in local storage. We can't store the object as a value so require to convert into a string.
+const user = {
+  name :"priya",
+  age : 100
+}
+console.log(JSON.stringify(user)) //convert into a string
+console.log(JSON.parse(JSON.stringify(user)))  //convert into an object
+
+localStorage.setItem("testAsKey", JSON.stringify(user)) {"name":"priya","age":100}
+localStorage.setItem("testAsKey", user) //[object Object] beacuse we are forcefully trying to convert in a string
+
+JSON.parse(localStorage.getItem("testAsKey")) //will get as a object
+// ------------------------------------------------------------------------------------------
+const user = {
+  name :"priya",
+  age : 100
+}
+console.log(JSON.stringify(user,["name"])) //"{'name':'priya'}"
+
+//wheen we pass as a array then it will convernt only those properties and ignore rest of the proerties
+// ------------------------------------------------------------------------------------------
+const shape = {
+  radius: 10,
+
+  diameter() {
+    return this.radius * 2; // 'this' correctly refers to the 'shape' object
+  },
+
+  parimeter: () => 2 * Math.PI * this.radius // 'this' does NOT refer to 'shape'
+}
+console.log(shape.diameter()) //20
+//console.log(shape.parimeter()) //Nan
+// -------------------------------------------------------------------------------------------
+let user = {
+  name : "Priya",
+  age : 100
+}
+
+const name = "Supriya";
+//const {name} = user; //Identifier 'name' has already been declared 
+const {name : myName} = user;
+
+console.log(myName) //Priya
+-------------------------------------------------------------------------------------------
+let user = {
+  age : 100,
+  fullName : {
+    first : "Priya",
+    last : "Bagde"
+  }
+}
+
+const {fullName : {first}} = user;
+console.log(first); //"Priya"
+//Destructuring at deep nested
+-------------------------------------------------------------------------------------------
+let c = {greeting : "Hey!"}
+let d;
+
+d=c;
+c.greeting = "Hello"
+console.log(d.greeting); //Hello
+//We are passing the refrence not the propertues of an object so when we changge the roperty of any object it will reflect in both objects
+-------------------------------------------------------------------------------------------
+let person = {name : "priya"}
+const members = [person]
+person = null
+console.log(members);// [{"name":"priya"}]
+
+let person = {name : "priya"}
+const members = [person]
+person.name = null
+console.log(members);// [{"name":null}]
+//because we are modifying the property of object
+-------------------------------------------------------------------------------------------
+// Ways to make deep copy:
+1. object.assign
+2. {...obj}
+3. JSON.parse(JSON.stringyfy(obj))
+// -------------------------------------------------------------------------------------------
+console.log(1);
+
+function print(name){
+  setTimeout(()=>{
+    return `${name}`
+  },1000)
+}
+let value = print("Priya");
+console.log(value)
+
+console.log(2);
+// Reason : It run the code quickly and it will not wait for setTimeout so value will be undefined
+// ---------------------------------------------------
+// Above code can be fix by callback:
+console.log(1);
+function print(name, cb){
+  setTimeout(()=>{
+     cb(`${name}`)
+  },1000)
+}
+print("Priya", (value)=>{
+  console.log(value)
+});
+console.log(2);
+// -------------------------------------------------------------------------------------------
+let promises = new Promise((resolve, reject)=>{
+  setTimeout(()=>{
+    let state = true;
+    if(state){
+      resolve("Resolved Promises!!...");
+    }else{
+      reject("Rejected Promises!!...");
+    }  
+  }, 1000)
+})
+promises.then((res)=>console.log(res))
+.catch((err)=>console.log(err))
+//resoled!!....
+-------------------------------------------------------------------------------------------
+console.log(1);
+
+const data = new Promise((resolve, reject)=>{
+  console.log(2);
+  resolve(3);
+})
+
+data.then((res)=>{
+  console.log(res)
+})
+
+console.log(4); //1 2 4 3
+-------------------------------------------------------------------------------------------
+console.log(1);
+
+const data = new Promise((resolve, reject)=>{
+  console.log(2);
+  resolve(3);
+})
+
+data.then((res)=>{
+  console.log(res)
+})
+
+console.log(4); //1 2 4 
+If we are not returning anything it will not print anything .
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+let a = "true";
+setTimeout(()=>{
+  a=false;
+}, 2000)
+
+while(a){
+  console.log("1")
+} 
+
+// Reason: 1, 1, 1,...... 
+// Explanation: Event loop will add setTimeout callback in Macrotask queue and will push it to call stack for execution only when the main thread finishes executing.
+
+// Here, since 'a' is true and isn't being set to false anywhere in main thread, the while loop will run infinitely, and setTimeout callback will never get a chance to run.
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function run(value, time){
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      resolve(value)
+    }, time)
+  })
+}
+async function task(){
+  let a = await run(1, 1000); //1value //1 sec
+  let b = run(2, 2000); //2value //2 sec
+  let c = run(3, 1000);  //3value //execute before b so will not take extra time
+  console.log(a + await b+ await c);
+}
+task()
+
+// 6 'in 3Sec'
+
+// Explanation: In line 10, a setTimeout() timer of 1 sec will be triggered and due to 'await', it will wait for the timer to expire, and after 1 sec, value of a is 1. 
+
+// Then since there is no 'await' in line 11 and 12, the 2 timers of 2 sec and 1 sec will be triggered simultaneously. Then in line 14, since b hasn't been resolved, due to await, it will wait for another 2 sec, and since the 2 timers started simultaneously, the other 1 sec timer would already have expired. 
+
+// So, after another 2 sec, value of b will be 2, and then immediately after that, value of c will be 3. 
+
+// 👉 Output : 1 + 2 + 3 = 6
+// 👉 Total time: 1 (line 10) + 2 (await b, in line 14) + 0 (await c, in line 14) = 3 sec
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const fetchData = function(){
+  return new Promise((res, reject)=>{
+    reject("Error!!")
+  })
+}
+
+fetchData()
+.then(null, (err)=>{
+  console.log("First");
+  console.log(err);
+})
+.catch(()=>{
+  console.log("Second");
+  console.log(err)
+})
+
+Explaination : "First" "Error!!"
+reject("Error!!") gives string value so it will go to THEN block rather than CATCH block.
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+displayName();
+var displayName = function(){
+  console.log("Priya")
+} 
+function displayName(){
+  console.log("dolly")
+}
+displayName();
+
+//Explaination : dolly priya
+
+Normal function will get execute before, because of function Hoisting concept, then function expression wil get execute.
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const inc = async(x) => {
+  x = x + await 1; //2
+  return x;
+}
+
+const increment = async(x) =>{ 
+  x = x+1; //2+1
+  return x; //3
+}
+inc(1)
+.then((x)=>{ //2
+  increment(x) //2
+  .then((x)=>console.log(x)) //3
+})
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const p1 = Promise.resolve("First");
+const p2 = Promise.reject("Second");
+const p3 = Promise.resolve("Third");
+const runPromise = async() =>{
+  try{
+    const res = await Promise.all([p1,p2,p3]);
+    console.log(res);
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+runPromise();
+
+//output : Second
+
+// Promise.all() returns array of resolved promises values and if either any of the promise is rejected, then it directly returns the rejected promise value through catch block.
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+console.log("start");
+
+async function getData(){
+  console.log("priya");
+  return "Dolly";
+}
+
+getData()
+.then((res)=> console.log(res));
+
+console.log("end");
+//start priya end Dolly
+//all the console will print first then aync and setTimeout
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const promise = () => Promise.resolve("Success");
+function first(){
+  promise().then((res)=> console.log(res)); //async
+  console.log("First"); //sync
+}
+async function second(){
+  const res = await promise(); 
+  console.log(res); //async
+  console.log("Second"); //sync
+}
+first();
+second();
+
+// First Sucess success second
+// sync(console) run hen async(promise)
+//await pause the line of execution
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

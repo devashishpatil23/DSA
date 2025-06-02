@@ -1,20 +1,16 @@
-function checkSquare(arr1, arr2) {
-  let obj1 = {};
-  let obj2 = {};
-
-  for (let el of arr1) {
-    obj1[el] = (obj1[el] || 0) + 1;
+const p1 = Promise.resolve("First");
+const p2 = Promise.reject("Second");
+const p3 = Promise.resolve("Third");
+const runPromise = async () => {
+  try {
+    const res = await Promise.all([p1, p2, p3]);
+    console.log(res);
+  } catch (err) {
+    console.log(err);
   }
-  for (let el of arr2) {
-    obj2[el] = (obj2[el] || 0) + 1;
-  }
+};
+runPromise();
 
-  for (let key in obj1) {
-    const square = key ** 2;
-    if (!(square in obj2)) return false;
-    if (obj2[square] !== obj1[key]) return false;
-  }
-  return true;
-}
+//output : Second
 
-console.log(checkSquare([1, 2, 4], [1, 4, 9]));
+// Promise.all() returns array of resolved promises values and if either any of the promise is rejected, then it directly returns the rejected promise value through catch block.
