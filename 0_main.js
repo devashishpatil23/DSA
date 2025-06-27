@@ -1,16 +1,15 @@
-const p1 = Promise.resolve("First");
-const p2 = Promise.reject("Second");
-const p3 = Promise.resolve("Third");
-const runPromise = async () => {
-  try {
-    const res = await Promise.all([p1, p2, p3]);
-    console.log(res);
-  } catch (err) {
-    console.log(err);
-  }
+let getBtn = document.querySelector("#btn");
+
+const myFunc = (name) => {
+  console.log(`Hello, ${name}!`);
 };
-runPromise();
 
-//output : Second
+function debounceFunc(fn, delay) {
+  let timer;
+  clearTimeout(timer);
+  timer = setTimeout(() => fn(...args), delay);
+}
 
-// Promise.all() returns array of resolved promises values and if either any of the promise is rejected, then it directly returns the rejected promise value through catch block.
+// Wrap myFunc with the argument and debounce it
+const debouncedClick = debounceFunc(() => myFunc("Devashish"), 500);
+

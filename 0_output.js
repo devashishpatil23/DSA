@@ -47,7 +47,7 @@ foo();
 // output: undefined;
 /*-----------------------------------------------*/
 
-for (var i = 0; ; i++) {
+for (var i = 0;i<3 ; i++) {
   setTimeout(function log() {
     console.log(i); // What is logged?
   }, 1000);
@@ -321,59 +321,6 @@ MCQ22();
   and variable b is a just global scope variable hence it will be available outside function foo() also. 
   */
 
-function MCQ21() {
-  const fetchData = function () {
-    return new Promise((resolve, reject) => {
-      reject();
-    });
-  };
-
-  fetchData()
-    .then(() => {
-      console.log("Success 1");
-    })
-    .catch(() => {
-      console.log("Error 1");
-    })
-    .then(() => {
-      console.log("Success 2");
-    });
-}
-MCQ21();
-
-/*
-  Answer is C) Error 1 Success 2 because in promise chaining .then method below .catch method will be called if in .catch method we are not 
-  returning rejected promise ( by default implicitly returns a promise that is handled by it's below .then method )
-  */
-
-// -------------------------------------------------------------
-
-function MCQ21() {
-  const fetchData = function () {
-    return new Promise((resolve, reject) => {
-      reject();
-    });
-  };
-
-  fetchData()
-    .then(() => {
-      console.log("Success 1");
-    })
-    .catch(() => {
-      console.log("Error 1");
-    })
-    .then(() => {
-      console.log("Success 2");
-    });
-}
-MCQ21();
-
-/*
-    Answer is Error 1 Success 2 because in promise chaining .then method below .catch method will be called if in .catch method we are not 
-    returning rejected promise ( by default implicitly returns a promise that is handled by it's below .then method )
-    */
-//-----------------------------------
-
 // 👉 MCQ-20
 function MCQ20() {
   console.log("First");
@@ -501,7 +448,7 @@ MCQ16();
 //------------------------------------------------------------
 
 // 👉 MCQ-15
-function MCQ15() {
+
   function show() {
     console.log(this.name);
   }
@@ -511,8 +458,7 @@ function MCQ15() {
 
   show = show.bind(person1).bind(person2);
   show();
-}
-MCQ15();
+
 /*
   Answer is C) JC because a function which is bound with bind keyword can not be re-bound with other new context, bind chaining does not exist.
   once the function is bound to a particular object, It will always be bound to that object no matter how many times it's further bounded.
@@ -575,7 +521,7 @@ function MCQ13() {
 MCQ13();
 
 /*
-  Answer is B) 3 because arguments keyword is an array of arguments passed to the function. 
+ 3 because arguments keyword is an array of arguments passed to the function. 
   Here while calling object.method(), we are passing three arguments callback fn(), 2 and 3.
   If we try to console arguments it will look like this 👇
 
