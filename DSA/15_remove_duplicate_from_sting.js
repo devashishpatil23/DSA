@@ -1,17 +1,3 @@
-function removeDuplicate(str) {
-  let charObj = {};
-  let result = "";
-
-  for (let char of str) {
-    if (!charObj[char]) {
-      charObj[char] = true;
-      result += char;
-    }
-  }
-
-  return result;
-}
-
 
 function removeDup(str){
 const obj = new Set();
@@ -54,3 +40,23 @@ function uniqueString(str) {
 }
 
 console.log(uniqueString("strring"));
+
+
+
+// remove dup from string
+function removeDupChar(str){
+  let result= "";
+  const hasChar = new Set();
+
+  for(let el of str){
+    if(!hasChar.has(el)){
+       hasChar.add(el)
+    }else if(!result.includes(el)){
+            result += el;
+    }
+  }
+
+return result;
+}
+
+console.log(removeDupChar("fhdghirtwhdkjgshfe"))

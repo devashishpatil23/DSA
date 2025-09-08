@@ -1,6 +1,6 @@
 function tarnspose(arr) {
-  const rows = arr.length;
   const cols = arr[0].length;
+  const rows = arr.length;
   const newArray = [];
 
   for (let i = 0; i < cols; i++) {
