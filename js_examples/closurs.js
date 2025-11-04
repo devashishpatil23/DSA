@@ -36,3 +36,31 @@ y();
 /* The IIFE (Immediately Invoked Function Expression) creates a new function scope.
     Each iteration gets its own copy of i (stored as j), so setTimeout captures the correct value.
      */
+
+
+
+
+    function balance(){
+  let amount = 0;
+
+return {
+  add: function(addAmount=1){
+    amount+=addAmount;
+    return amount;
+  },
+   minus: function(){
+    amount--;
+    return amount;
+  },
+     getAmount: function(){
+    return amount;
+  },
+}
+}
+
+
+const addAmount = balance();
+addAmount.add(10)
+addAmount.add(10)
+
+console.log(addAmount.getAmount())

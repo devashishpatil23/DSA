@@ -36,6 +36,12 @@ console.log(Array.prototype);
 
 // First, JS checks the method in that object; if not found, it then checks in the prototype object.
 // So, the prototype is an object that inherits the properties and methods from another object.
+
 // It is used for efficient memory management and object inheritance, so instead of duplicating methods for every object instance, we can share methods, and they will be available.
 
 // It does not work with arrow functions because this points to the global object.
+
+
+// Prototype inheritance means that in JavaScript, objects can inherit properties and methods from other objects through a prototype chain.
+// Every object has a hidden property called __proto__, which points to its prototype.
+// If a property or method isn’t found on the object, JavaScript looks for it in the prototype, and keeps going up the chain until it reaches null.

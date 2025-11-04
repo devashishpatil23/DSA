@@ -1578,8 +1578,53 @@ second();
 
 
 
+// fixed the below
+// let a = true;
+// setTimeout(() => {
+//  a = false;
+// }, 2000)
+// while(a) {
+//  console.log(' -- inside whilee -- ');
+// }
 
 
+
+
+
+
+
+function stop(ms){
+  return new Promise(resolve=> setTimeout(()=>resolve(),ms))
+}
+
+async function run(){
+  let a = true;
+  setTimeout(()=> {
+    a = false
+  },2000)
+
+  while(a){
+    console.log('runnnnnnn')
+    await stop(100)
+  }
+ 
+}
+ run()
+
+
+ ////////////////////////////////
+let a = true;
+setTimeout(() => {
+ a = false;
+}, 2000)
+
+const interval = setInterval(()=>{
+  if(a){
+    console.log('hello')
+  }else{
+    clearInterval(interval)
+  }
+})
 
 
 

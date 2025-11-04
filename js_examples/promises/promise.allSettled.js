@@ -18,6 +18,18 @@ Promise.allSettled([p1, p2, p3]).then((results) => {
   });
 });
 
+
+// [{
+//   status: "fulfilled",
+//   value: "Promise 1 resolved"
+// }, {
+//   reason: "Promise 2 failed",
+//   status: "rejected"
+// }, {
+//   status: "fulfilled",
+//   value: "Promise 3 resolved"
+// }]
+
 const userPromise = fetch("https://jsonplaceholder.typicode.com/users/1").then(
   (res) => res.json()
 );
