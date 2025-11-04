@@ -245,104 +245,7 @@ var frequencySort = function(nums) {
     
 };
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-Day 10: Valid Parentheses
 
-Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
-An input string is valid if:
-Open brackets must be closed by the same type of brackets.
-Open brackets must be closed in the correct order.
-Every close bracket has a corresponding open bracket of the same type.
-Input: s = "()"
-Output: true
-
-var isValid = function(s) {
-    if (s.length <=1) return false
-    
-    let stack = []
-    let hash = {
-        '(' : ')',
-        '[' : ']',
-        '{' : '}'
-    }
-    
-    for(let i = 0; i < s.length; i++){
-        if (hash[s[i]]) stack.push(hash[s[i]])
-        else if (s[i] !== stack.pop()) return false
-    }
-    return !stack.length
-};
-console.log(isValid("{}[]"))
-/*var isValid = function(s) {
-    if (s.length === 0) {
-        return true;
-    }
-    
-    const stack = [];
-    const bracketMap = {
-        ")": '(',
-        "]": '[',
-        "}": '{',
-    };
-    
-    for(let i = 0; i < s.length; i++) {
-        if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
-		    // add open brackets in the stack
-            stack.push(s[i]);
-        } else {
-		    // remove the latest item in stack if it matches the current closing bracket
-            if (stack[stack.length - 1] === bracketMap[s[i]]) {
-                stack.pop();
-            } else {
-                return false;
-            }
-            
-        } 
-    }
-    // string is valid if all matching brackets are removed from the stack
-    return stack.length === 0;
-};*/
------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 11: Fizz Buzz
-Example 1:
-
-Input: n = 3
-Output: ["1","2","Fizz"]
-Example 2:
-
-Input: n = 5
-Output: ["1","2","Fizz","4","Buzz"]
-
-/*var fizzBuzz = function(n) {
-    var ans = [];
-
-    for (var i = 1; i <= n; i++) {
-        if (i % 3 === 0 && i % 5 === 0) {
-            ans.push("FizzBuzz");
-        } else if (i % 3 === 0) {
-            ans.push("Fizz");
-        } else if (i % 5 === 0) {
-            ans.push("Buzz");
-        } else {
-            ans.push(i.toString());
-        }
-    }
-
-    return ans;    
-};*/
-var fizzBuzz = function(n) {
-    let arr = [];
-    let i = 1;
-    
-    while (i <= n){
-        if (i % 3 == 0 & i % 5 == 0) arr.push("FizzBuzz");
-        else if (i % 3 == 0) arr.push("Fizz");
-        else if (i % 5 == 0) arr.push("Buzz");
-        else arr.push(i.toString());
-        i++;
-    }
-    return arr;
-};
-------------------------------------------------------------------------------------------------------------------------------------------------------
 Day 12: Truncate Sentence
 Input: s = "Hello how are you Contestant", k = 4
 Output: "Hello how are you"
@@ -511,62 +414,7 @@ var isIsomorphic = function(s, t) {
     return true
 };
 ======================================================================================================================================================
-Day 17: Longest Common Prefix
 
-Input: strs = ["flower","flow","flight"]
-Output: "fl"
-
-/*var longestCommonPrefix = function(strs) {
-  if (strs.length === 0) return '';
-  let r = '';
-  for (let i = 0; i < strs[0].length; i++) {
-    for (let j = 1; j < strs.length; j++) {
-      if (strs[0][i] !== strs[j][i]) return r;
-    }
-    r += strs[0][i];
-  }
-  return r;
-};*/
-
-var longestCommonPrefix = function (strs) {
-    let output = "";
-    for (let i = 0; i < strs[0].length; i++) {
-        if(strs.every(str => str[i] === strs[0][i])) output += strs[0][i];
-        else break;
-    }
-    return output;
-};
-======================================================================================================================================================
-Day 18: Reverse String:
-Write a function that reverses a string. The input string is given as an array of characters s.
-You must do this by modifying the input array in-place with O(1) extra memory.
-
-Input: s = ["h","e","l","l","o"]
-Output: ["o","l","l","e","h"]
-
-/*const reverseString=(arr)=>{
-  for(let i=0; i<arr.length/2; i++){
-    [arr[i], arr[arr.length-i-1]]=[arr[arr.length-i-1], arr[i]]
-  }
-  return arr
-}*/
-
-var reverseString = function(s) {
-    var i = 0;
-    var j = s.length - 1;
-    while (i < j) {
-        [s[i], s[j]] = [s[j], s[i]];
-        i++;
-        j--;
-    }
-};
-
-var reverseString = function(s) {
-    return s.reverse()
-    
-};
-
-======================================================================================================================================================
 Day 19: Check If String Is a Prefix of Array
 
 Input: s = "iloveleetcode", words = ["i","love","leetcode","apples"]
@@ -587,17 +435,8 @@ var isPrefixString = function(s, words) {
     return false;
 };
 ======================================================================================================================================================
-Day 20: Valid Anagram
 
-Input: s = "anagram", t = "nagaram"
-Output: true
 
-var isAnagram = function(s, t) {
-    if (s.length !== t.length) return false;
-    return s.split("").sort().join("") === t.split("").sort().join("");
-};
-
-======================================================================================================================================================
 Day 21 : Check If a Word Occurs As a Prefix of Any Word in a Sentence
 
 Input: sentence = "i love eating burger", searchWord = "burg"
@@ -821,54 +660,7 @@ var maxProfit = function(prices) {
     return diff
 };
 
-======================================================================================================================================================
-Day 28: Find the Duplicate Number
-Input: nums = [1,3,4,2,2]
-Output: 2
 
-/*var findDuplicate = function(nums) {
-    const seen = new Set();
-    for (const num of nums) {
-        if (seen.has(num)) {
-            return num;
-        }
-        seen.add(num);
-    }
-    return -1;  // Just to satisfy the compiler, this should never be reached
-}
-
-var findDuplicate = function(nums) {
-    var freq = {} 
-    
-    for (var n of nums) {
-        if (n in freq) {return n}
-        else {freq[n] = 1}
-    }
-};*/
-
-function findDuplicate(arr){
-    let char = {};
-  for (let i = 0; i < arr.length; i++) {
-    if (char[arr[i]]) {
-      return arr[i];
-    }
-    char[arr[i]] = 1;
-  }
-  return null;
-    }
-
-// function findDuplicate(arr){
-//     let newArr=arr.sort()
-//     for(let i=0;i<arr.length ;i++){
-//         if(newArr[i]==newArr[i+1]){
-//             console.log( newArr[i])
-//             return newArr[i]
-//         }
-//     }
-
-// }
-
-======================================================================================================================================================
 Day 29: Join Two Arrays by ID
 Input: 
 arr1 = [
