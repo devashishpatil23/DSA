@@ -90,7 +90,18 @@ function outer() {
 
 outer()();
 
-// *******
+// This code is an example of a closure in JavaScript.
+// When outer() is called, it creates a local variable a = 10 and defines the function inner().
+// Instead of executing inner(), the outer() function returns the reference of the inner function.
+// So outer()() means:
+// First outer() runs and returns inner.
+// Then the second () executes the returned inner() function.
+// Even though outer() finishes executing, the inner() function still has access to the variable a inside outer().
+// This happens because JavaScript closures preserve the scope of variables that are used inside a returned function.
+
+
+
+// *******+++++++++++++++++++++++++++++++++++++++++++++
 function outer() {
   var x = 10;
 
@@ -105,6 +116,9 @@ var innerFunc = outer();
 
 innerFunc();
 
+// Every time we call outer(), a new closure is created with its own variable a.
+// Since we are calling outer() twice, we get two separate a values starting from 10 each time.
+// To have a keep incrementing, we must call the same returned inner function multiple times, not re-create it each time.
 /*-----------------------------------------------*/
 
 (function () {
@@ -132,23 +146,12 @@ var hero = {
 };
 
 var stoleSecretIdentity = hero.getSecretIdentity;
+// Here, we are not calling the function but assigning it to a new variable.
+// This means stoleSecretIdentity is now a --- reference --- to hero.getSecretIdentity, but not ---bound--- to hero.
 
 console.log(stoleSecretIdentity());
 console.log(hero.getSecretIdentity());
 
-var hero = {
-  _name: "John Doe",
-
-  getSecretIdentity: function () {
-    return this._name;
-  },
-};
-
-var stoleSecretIdentity = hero.getSecretIdentity;
-// Here, we are not calling the function but assigning it to a new variable.
-// This means stoleSecretIdentity is now a reference to hero.getSecretIdentity, but not bound to hero.
-
-console.log(stoleSecretIdentity());
 // When calling stoleSecretIdentity(), it is not invoked in the context of hero.
 // Instead, it is called as a regular function (not as a method of an object).
 // In non-strict mode, this inside a regular function call refers to the global object (window in browsers, global in Node.js).
