@@ -8,6 +8,7 @@ function meregeArray(obj1, obj2) {
   }
   return result;
 }
+
 const obj1 = { name: "John", age: 25 };
 const obj2 = { age: 30, city: "New York" };
 console.log(meregeArray(obj1, obj2));
@@ -21,8 +22,7 @@ function mergeObj(obj1,obj2){
   }
   return obj1;
 }
-const obj1 = { a: 1, b: 2, c: 3 };
-const obj2 = { b: 2, c: 4, d: 5 };
+
 console.log(mergeObj(obj1,obj2))
 
 

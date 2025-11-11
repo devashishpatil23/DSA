@@ -64,3 +64,9 @@ addAmount.add(10)
 addAmount.add(10)
 
 console.log(addAmount.getAmount())
+
+
+
+// avoiding global variables.
+// To Remember Data (State)
+// o Create Private Variable

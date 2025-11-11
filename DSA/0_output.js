@@ -3,7 +3,7 @@ function a() {
   console.log("a");
 }
 
-b(); //output- error -->Uncaught TypeError: b is not a function
+b(); //output- error --> Uncaught TypeError: b is not a function
 var b = function () {
   console.log("b");
 };
@@ -61,7 +61,7 @@ for (var i = 0;i<3 ; i++) {
 // By the time the setTimeout functions execute after 1 second, the loop has already finished, and i has the final value of 3.
 
 // to fix we can use let
-// let creates a block-scoped variable.
+// let creates a block-scoped variable. and warps each call in a bloack and 
 // Each iteration gets its own separate copy of i, preserving its value
 
 // alose (IIFE) to create a new scope:
@@ -99,27 +99,6 @@ outer()();
 // Even though outer() finishes executing, the inner() function still has access to the variable a inside outer().
 // This happens because JavaScript closures preserve the scope of variables that are used inside a returned function.
 
-
-
-// *******+++++++++++++++++++++++++++++++++++++++++++++
-function outer() {
-  var x = 10;
-
-  function inner() {
-    console.log(x);
-  }
-
-  return inner;
-}
-
-var innerFunc = outer();
-
-innerFunc();
-
-// Every time we call outer(), a new closure is created with its own variable a.
-// Since we are calling outer() twice, we get two separate a values starting from 10 each time.
-// To have a keep incrementing, we must call the same returned inner function multiple times, not re-create it each time.
-/*-----------------------------------------------*/
 
 (function () {
   console.log(1);
@@ -1371,11 +1350,6 @@ person.name = null
 console.log(members);// [{"name":null}]
 //because we are modifying the property of object
 -------------------------------------------------------------------------------------------
-// Ways to make deep copy:
-1. object.assign
-2. {...obj}
-3. JSON.parse(JSON.stringyfy(obj))
-// -------------------------------------------------------------------------------------------
 console.log(1);
 
 function print(name){
@@ -1400,62 +1374,25 @@ print("Priya", (value)=>{
   console.log(value)
 });
 console.log(2);
-// -------------------------------------------------------------------------------------------
-let promises = new Promise((resolve, reject)=>{
-  setTimeout(()=>{
-    let state = true;
-    if(state){
-      resolve("Resolved Promises!!...");
-    }else{
-      reject("Rejected Promises!!...");
-    }  
-  }, 1000)
-})
-promises.then((res)=>console.log(res))
-.catch((err)=>console.log(err))
-//resoled!!....
--------------------------------------------------------------------------------------------
+// 
+
+
 console.log(1);
 
-const data = new Promise((resolve, reject)=>{
-  console.log(2);
-  resolve(3);
-})
+function print(name){
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      resolve(name);
+    },1000)
+  })
+}
 
-data.then((res)=>{
-  console.log(res)
-})
+print("Priya").then((value)=>{
+  console.log(value);
+});
 
-console.log(4); //1 2 4 3
--------------------------------------------------------------------------------------------
-console.log(1);
+console.log(2);-------------------------------------------------------------------------------------------
 
-const data = new Promise((resolve, reject)=>{
-  console.log(2);
-  resolve(3);
-})
-
-data.then((res)=>{
-  console.log(res)
-})
-
-console.log(4); //1 2 4 
-If we are not returning anything it will not print anything .
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-let a = "true";
-setTimeout(()=>{
-  a=false;
-}, 2000)
-
-while(a){
-  console.log("1")
-} 
-
-// Reason: 1, 1, 1,...... 
-// Explanation: Event loop will add setTimeout callback in Macrotask queue and will push it to call stack for execution only when the main thread finishes executing.
-
-// Here, since 'a' is true and isn't being set to false anywhere in main thread, the while loop will run infinitely, and setTimeout callback will never get a chance to run.
-// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function run(value, time){
   return new Promise((resolve)=>{
     setTimeout(()=>{
@@ -1498,29 +1435,15 @@ fetchData()
   console.log(err)
 })
 
-Explaination : "First" "Error!!"
-reject("Error!!") gives string value so it will go to THEN block rather than CATCH block.
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-displayName();
-var displayName = function(){
-  console.log("Priya")
-} 
-function displayName(){
-  console.log("dolly")
-}
-displayName();
-
-//Explaination : dolly priya
-
-Normal function will get execute before, because of function Hoisting concept, then function expression wil get execute.
-// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-const inc = async(x) => {
+// if you provide an error handler in .then(success, error), the rejection is handled there and does not propagate to .catch(). The .catch() only executes if the error is not already handled.--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------
+const inc = async (x) => {
   x = x + await 1; //2
   return x;
 }
 
-const increment = async(x) =>{ 
-  x = x+1; //2+1
+const increment = async (x) =>{ 
+  let x = x + 1; //2+1
   return x; //3
 }
 inc(1)
@@ -1578,58 +1501,6 @@ second();
 // sync(console) run hen async(promise)
 //await pause the line of execution
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-// fixed the below
-// let a = true;
-// setTimeout(() => {
-//  a = false;
-// }, 2000)
-// while(a) {
-//  console.log(' -- inside whilee -- ');
-// }
-
-
-
-
-
-
-
-function stop(ms){
-  return new Promise(resolve=> setTimeout(()=>resolve(),ms))
-}
-
-async function run(){
-  let a = true;
-  setTimeout(()=> {
-    a = false
-  },2000)
-
-  while(a){
-    console.log('runnnnnnn')
-    await stop(100)
-  }
- 
-}
- run()
-
-
- ////////////////////////////////
-let a = true;
-setTimeout(() => {
- a = false;
-}, 2000)
-
-const interval = setInterval(()=>{
-  if(a){
-    console.log('hello')
-  }else{
-    clearInterval(interval)
-  }
-})
-
-
 
 
 
