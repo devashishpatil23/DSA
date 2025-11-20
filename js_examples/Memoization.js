@@ -1,45 +1,44 @@
 function memoize(fn) {
-  const cache = {};
+  // memoize takes any function and returns a cached version of it
+  const cache = {}; // cache object to store previous results
+
   return function (...args) {
-    const key = JSON.stringify(args);
+    // return a new function that accepts any number of arguments
+    const key = JSON.stringify(args); // convert arguments to a unique string key
+
     if (cache[key]) {
-      return cache[key];
+      // if the result already exists in cache
+      return cache[key]; // return cached result (no recalculation)
+    }``
+
+    const result = fn(...args); // otherwise call the original function
+    cache[key] = result; // store the result in the cache
+    return result; // return the calculated result
+  };
+}
+
+// Example usage
+const add = (a, b) => a + b; // simple function to add two numbers
+
+const memoizedAdd = memoize(add); // create memoized version of add
+
+console.log(memoizedAdd(1, 2)); // 3, calculated (stored in cache)
+console.log(memoizedAdd(1, 2)); // 3, cached (returned instantly)
+
+//----------------------
+
+function memoize(fn) {
+  let cache = {};
+
+  return function (x) {
+    if (cache[x] !== undefined) {
+      console.log("from cache");
+      return cache[x];
     }
-    const result = fn(...args);
-    cache[key] = result;
+
+    console.log("calculating...");
+    const result = fn(x);
+    cache[x] = result;
     return result;
   };
 }
-// Example usage
-const add = (a, b) => a + b;
-const memoizedAdd = memoize(add);
-console.log(memoizedAdd(1, 2)); // 3, calculated
-console.log(memoizedAdd(1, 2)); // 3, cached
-
-
-
-
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-memo-demo',
-//   template: `
-//     <p>Result: {{ expensiveFunction(5) }}</p>
-//     <p>Result: {{ expensiveFunction(5) }}</p>
-//   `
-// })
-// export class MemoDemoComponent {
-//   private cache = new Map<number, number>();
-
-//   expensiveFunction(num: number): number {
-//     if (this.cache.has(num)) {
-//       console.log('Returning cached value');
-//       return this.cache.get(num)!;
-//     }
-//     console.log('Calculating result...');
-//     let result = 0;
-//     for (let i = 0; i < 100000000; i++) result += num; // expensive task
-//     this.cache.set(num, result);
-//     return result;
-//   }
-// }
